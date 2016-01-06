@@ -248,7 +248,8 @@ public class FightMonView implements Runnable{
 				
 				fightMonControl.wasmoved();
 				
-			}if(myCh.getIsskill()!=true)
+			}
+			if(myCh.getIsskill()!=true)
 			{
 				try {
 					Thread.sleep(200);
@@ -394,13 +395,9 @@ public class FightMonView implements Runnable{
 						fightMonControl.turnoff(true);
 					}
 				}
-				
 			}
 			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getNMp()>=10&&myCh.getIsskill()==true)
 			{
-	
-				System.out.println(motion);
-				myCh.setNMp(myCh.getNMp()-10);
 				mJfr.getJfr().add(mJfr.getJpn5());
 				mJfr.getJpn5().setBounds(100, 50, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
 				motion++;
@@ -471,6 +468,7 @@ public class FightMonView implements Runnable{
 					}
 					else
 					{
+						myCh.setNMp(myCh.getNMp()-10);
 						motion=1;
 						mmotion=1;
 						motion_ok=false;

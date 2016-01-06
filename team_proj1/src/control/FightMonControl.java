@@ -68,7 +68,7 @@ public class FightMonControl implements KeyListener{
 				else if(mySelect==2)
 				{
 					myCh.setIsskill(true);
-					eat= EAttackType.EEnter1;
+					eat= EAttackType.EEnter2;
 					keyOk=false;
 				}
 				else if(mySelect==3)
