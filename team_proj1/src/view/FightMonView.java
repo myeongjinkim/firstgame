@@ -14,6 +14,7 @@ import entity.AllChar;
 import entity.MyJFrame;
 
 public class FightMonView implements Runnable{
+	Thread t;
 	MyJFrame mJfr;
 	FightMonControl fightMonControl;
 	 int selectMenu;
@@ -27,12 +28,14 @@ public class FightMonView implements Runnable{
 	 int myY;
 	 int motion=1;
 	 boolean motion_ok=false;
+	 boolean first =true;
 	 int mmotion=1;
 	 ImageIcon icon1;
 	ImageIcon icon2;
-	final ImageIcon icon3 = new ImageIcon(".\\img\\fightmon.png");
+	final ImageIcon icon3 = new ImageIcon(".\\img\\fightMenu.png");
 	ImageIcon icon4 = new ImageIcon(".\\img\\meetmon.jpg");
 	final ImageIcon icon5 = new ImageIcon(".\\img\\attack.png");
+	ImageIcon icon6 = new ImageIcon(".\\img\\victory.png");
 	
 	public FightMonView(AllChar myC, AllChar mo, MyJFrame mJf, 
 			int Jfr_Xsiz, int  Jfr_Ysiz,int Jfr_Xl, int Jfr_Yl,int mX,int mY)
@@ -110,8 +113,9 @@ public class FightMonView implements Runnable{
 			private static final long serialVersionUID = 9166120552525119084L;
 
 			public void paintComponent(Graphics g) {
-                g.drawImage(icon4.getImage(), 0, 0, Jfr_Xsize, Jfr_Ysize, null);
-               
+				
+					g.drawImage(icon4.getImage(), 0, 0, Jfr_Xsize, Jfr_Ysize, null);
+				
                } 
         });
 		mJfr.setJpn5(new JPanel(){
@@ -177,7 +181,7 @@ public class FightMonView implements Runnable{
 		
 		fightMonControl= new FightMonControl(myCh,mon, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,myX,myY);
 		mJfr.getJfr().addKeyListener(fightMonControl); 
-		Thread t = new Thread(this);
+		t = new Thread(this);
 	    t.start();
 	}
 
@@ -207,6 +211,7 @@ public class FightMonView implements Runnable{
 		{
 			if(myCh.getNHp()<=0)
 			{
+				
 				break;
 			}
 			if(mon.getNHp()<=0)
@@ -218,7 +223,6 @@ public class FightMonView implements Runnable{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				mJfr.getJfr().remove(mJfr.getJpn1());
 				mJfr.getJfr().remove(mJfr.getJpn2());
 				mJfr.getJfr().remove(mJfr.getJpn3());
@@ -228,8 +232,38 @@ public class FightMonView implements Runnable{
 				mJfr.getJfr().remove(mJfr.getJlb2());
 				mJfr.getJfr().remove(mJfr.getJlb3());
 				mJfr.getJfr().remove(mJfr.getJlb4());
+				mJfr.setJpn4(new JPanel(){
+					
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+					public void paintComponent(Graphics g) {
+						
+							g.drawImage(icon6.getImage(), 0, 0, Jfr_Xsize, Jfr_Ysize, null);
+						
+		               } 
+		        });
+
+				
+				mJfr.getJpn4().setBounds(0, 0, Jfr_Xsize, Jfr_Ysize);
+				mJfr.getJpn4().setLayout(new BorderLayout());
+				mJfr.getJpn4().setBackground(Color.white);
+				mJfr.getJfr().add(mJfr.getJpn4());
+				mJfr.getJfr().repaint();
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				mJfr.getJfr().remove(mJfr.getJpn4());
+				
 				new GameView(myCh, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,myX,myY);
+		
 				break;
+
 			}
 			mJfr.getJlb1().setText(myCh.getName()+" Lv."+myCh.getLevel());
 			mJfr.getJlb2().setText(" Ã¼·Â: "+myCh.getNHp()+"/"+myCh.getHp()+
@@ -336,7 +370,6 @@ public class FightMonView implements Runnable{
 				mJfr.getJfr().add(mJfr.getJpn5());
 				mJfr.getJpn5().setBounds(600, 270, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
 				
-				System.out.println(motion);
 				if(motion==2)
 				{
 					mJfr.getJpn2().setBounds(Jfr_Xsize*3/4-80, 30, Jfr_Xsize/4, Jfr_Ysize/3);
@@ -540,7 +573,7 @@ public class FightMonView implements Runnable{
 						motion_ok=false;
 						fightMonControl.monturn();
 						mon.setIsattack(false);
-						myCh.setIsattack(false);
+						myCh.setIsskill(false);
 						fightMonControl.turnoff(true);
 					}
 				}
@@ -551,8 +584,6 @@ public class FightMonView implements Runnable{
 			
 			
 		}
-		
-		
 		
 	
 		
