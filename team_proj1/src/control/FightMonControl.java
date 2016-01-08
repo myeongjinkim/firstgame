@@ -74,14 +74,6 @@ public class FightMonControl implements KeyListener{
 				else if(mySelect==3)
 				{
 					ekt= EKeyType.EExit;
-					mJfr.getJfr().remove(mJfr.getJpn1());
-					mJfr.getJfr().remove(mJfr.getJpn2());
-					mJfr.getJfr().remove(mJfr.getJpn3());
-					mJfr.getJfr().remove(mJfr.getJpn4());
-					mJfr.getJfr().remove(mJfr.getJlb1());
-					mJfr.getJfr().remove(mJfr.getJlb2());
-					mJfr.getJfr().remove(mJfr.getJlb3());
-					mJfr.getJfr().remove(mJfr.getJlb4());
 					mon.setNHp(mon.getHp());
 					end=true;
 					new GameView(myCh, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,myX,myY);

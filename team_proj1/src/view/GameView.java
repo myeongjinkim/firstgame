@@ -159,6 +159,7 @@ public class GameView implements Runnable{
 		mJfr.getJfr().add(mJfr.getJpn2());
 		
 		while (true){
+			
 			if(end)
 			{
 				break;
@@ -189,7 +190,9 @@ public class GameView implements Runnable{
 					mJfr.getJfr().remove(mJfr.getJpn1());
 					mJfr.getJfr().remove(mJfr.getJpn2());
 					new FightMonView(myCh,mon, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,mgetX(),mgetY());
-					break;
+					System.out.println("³¡");
+					mJfr.getJfr().add(mJfr.getJpn1());
+					mJfr.getJfr().add(mJfr.getJpn2());
 				}
 				gamecontrol.wasmoved();
 			}
@@ -198,8 +201,6 @@ public class GameView implements Runnable{
 		        }catch (Exception ex){ } 
 	       
 		}
-		mJfr.getJfr().remove(mJfr.getJpn1());
-		mJfr.getJfr().remove(mJfr.getJpn2());
 	}
 	public void msetXY(int x, int y)
 	{
