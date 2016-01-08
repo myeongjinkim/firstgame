@@ -10,8 +10,8 @@ public class AllChar {
 	int attack=level;
 	int mexe=level*10;
 	int nexe;
-	boolean isattack=false;
-	boolean isskill=false;
+	boolean isAttack=false;
+	boolean isSkill=false;
 	
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
@@ -62,10 +62,11 @@ public class AllChar {
 	public void setMexe(int mexe) {this.mexe = mexe;}
 	public int getNexe() {return nexe;}
 	public void setNexe(int nexe) {this.nexe = nexe;}
-	public boolean getIsskill() {return isskill;}
-	public void setIsskill(boolean isskill) {this.isskill = isskill;}
 	
-	public boolean getIsattack() {return isattack;}
-	public void setIsattack(boolean isattack) {this.isattack = isattack;}
+	public boolean getIsSkill() {return isSkill;}
+	public void setIsSkill(boolean isSkill) {this.isSkill = isSkill;}
+	
+	public boolean getIsAttack() {return isAttack;}
+	public void setIsAttack(boolean isAttack) {this.isAttack = isAttack;}
 	
 }

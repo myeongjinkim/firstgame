@@ -10,8 +10,8 @@ import entity.MyJFrame;
 
 public class FightMonControl implements KeyListener{
 	public boolean keyOk = true;
-	public enum EAttackType {EUp, EDown, EEnter1,EEnter2,EEnter3}
-	EAttackType eat=null;
+	public enum EKeyType {EUp, EDown, EAttack,ESkill,EExit}
+	EKeyType ekt=null;
 	int mySelect;
 	EChar eChar;
 	MyJFrame mJfr;
@@ -49,31 +49,31 @@ public class FightMonControl implements KeyListener{
 		{
 			if(e.getKeyCode()== KeyEvent.VK_UP)
 			{
-				eat= EAttackType.EUp;
+				ekt= EKeyType.EUp;
 			}
 		
 			else if(e.getKeyCode()==KeyEvent.VK_DOWN)
 			{
-				eat= EAttackType.EDown;
+				ekt= EKeyType.EDown;
 			}
 			else if(e.getKeyCode()==KeyEvent.VK_ENTER&&turn)
 			{
 				turn=false;
 				if(mySelect==1)
 				{
-					myCh.setIsattack(true);
-					eat= EAttackType.EEnter1;
+					ekt= EKeyType.EAttack;
+					myCh.setIsAttack(true);
 					keyOk=false;
 				}
 				else if(mySelect==2)
 				{
-					myCh.setIsskill(true);
-					eat= EAttackType.EEnter2;
+					ekt= EKeyType.ESkill;
+					myCh.setIsSkill(true);
 					keyOk=false;
 				}
 				else if(mySelect==3)
 				{
-					eat= EAttackType.EEnter3;
+					ekt= EKeyType.EExit;
 					mJfr.getJfr().remove(mJfr.getJpn1());
 					mJfr.getJfr().remove(mJfr.getJpn2());
 					mJfr.getJfr().remove(mJfr.getJpn3());
@@ -104,7 +104,7 @@ public class FightMonControl implements KeyListener{
 	}
 	public boolean ismove()
 	{
-		if(eat!=null)
+		if(ekt!=null)
 		{
 			keyOk=false;
 			return true;
@@ -119,12 +119,12 @@ public class FightMonControl implements KeyListener{
 	{
 		
 		keyOk=true;
-		eat=null;
+		ekt=null;
 	}
 	public int moveSelect(int select)
 	{
 		
-		if(eat== EAttackType.EUp)
+		if(ekt== EKeyType.EUp)
 		{
 			if(select==1)
 			{
@@ -135,7 +135,7 @@ public class FightMonControl implements KeyListener{
 			}
 			
 		}
-		else if(eat== EAttackType.EDown)
+		else if(ekt== EKeyType.EDown)
 		{
 			if(select==3)
 			{

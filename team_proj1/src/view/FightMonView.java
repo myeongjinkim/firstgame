@@ -283,7 +283,7 @@ public class FightMonView implements Runnable{
 				fightMonControl.wasmoved();
 				
 			}
-			if(myCh.getIsskill()!=true)
+			if(myCh.getIsSkill()!=true)
 			{
 				try {
 					Thread.sleep(200);
@@ -301,7 +301,7 @@ public class FightMonView implements Runnable{
 					e.printStackTrace();
 				}
 			}
-			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getIsattack()==true)
+			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getIsAttack()==true)
 			{
 				
 				mJfr.getJfr().add(mJfr.getJpn5());
@@ -356,8 +356,8 @@ public class FightMonView implements Runnable{
 						mmotion=1;
 						motion_ok=false;
 						fightMonControl.ourturn();
-						myCh.setIsattack(false);
-						mon.setIsattack(true);
+						myCh.setIsAttack(false);
+						mon.setIsAttack(true);
 					}
 				}
 				
@@ -365,7 +365,7 @@ public class FightMonView implements Runnable{
 				
 			}
 			
-			if(mon.getNHp()>0&&myCh.getNHp()>0&&mon.getIsattack()==true)
+			if(mon.getNHp()>0&&myCh.getNHp()>0&&mon.getIsAttack()==true)
 			{
 				mJfr.getJfr().add(mJfr.getJpn5());
 				mJfr.getJpn5().setBounds(600, 270, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
@@ -423,13 +423,13 @@ public class FightMonView implements Runnable{
 						mmotion=1;
 						motion_ok=false;
 						fightMonControl.monturn();
-						mon.setIsattack(false);
-						myCh.setIsattack(false);
+						mon.setIsAttack(false);
+						myCh.setIsAttack(false);
 						fightMonControl.turnoff(true);
 					}
 				}
 			}
-			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getNMp()>=10&&myCh.getIsskill()==true)
+			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getNMp()>=10&&myCh.getIsSkill()==true)
 			{
 				mJfr.getJfr().add(mJfr.getJpn5());
 				mJfr.getJpn5().setBounds(100, 50, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
@@ -506,15 +506,15 @@ public class FightMonView implements Runnable{
 						mmotion=1;
 						motion_ok=false;
 						fightMonControl.ourturn();
-						myCh.setIsskill(false);
-						mon.setIsattack(true);
+						myCh.setIsSkill(false);
+						mon.setIsAttack(true);
 					}
 				}
 				
 				
 				
 			}
-			if(mon.getNHp()>0&&myCh.getNHp()>0&&mon.getIsattack()==true)
+			if(mon.getNHp()>0&&myCh.getNHp()>0&&mon.getIsAttack()==true)
 			{
 				mJfr.getJfr().add(mJfr.getJpn5());
 				mJfr.getJpn5().setBounds(600, 270, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
@@ -572,8 +572,8 @@ public class FightMonView implements Runnable{
 						mmotion=1;
 						motion_ok=false;
 						fightMonControl.monturn();
-						mon.setIsattack(false);
-						myCh.setIsskill(false);
+						mon.setIsAttack(false);
+						myCh.setIsSkill(false);
 						fightMonControl.turnoff(true);
 					}
 				}
