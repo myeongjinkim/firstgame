@@ -189,6 +189,7 @@ public class GameView implements Runnable{
 					
 					mJfr.getJfr().remove(mJfr.getJpn1());
 					mJfr.getJfr().remove(mJfr.getJpn2());
+					System.out.println("Ω√¿€");
 					new FightMonView(myCh,mon, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,mgetX(),mgetY());
 					System.out.println("≥°");
 					mJfr.getJfr().add(mJfr.getJpn1());

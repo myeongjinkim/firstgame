@@ -76,7 +76,6 @@ public class FightMonControl implements KeyListener{
 					ekt= EKeyType.EExit;
 					mon.setNHp(mon.getHp());
 					end=true;
-					new GameView(myCh, mJfr, Jfr_Xsize, Jfr_Ysize,Jfr_Xlo, Jfr_Ylo,myX,myY);
 					keyOk=false;
 				}
 			}

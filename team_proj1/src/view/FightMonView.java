@@ -33,7 +33,6 @@ public class FightMonView{
 	{
 		
 		
-		System.out.println("1");
 		
 		
 		
@@ -134,7 +133,7 @@ public class FightMonView{
 		Jpn4.setLayout(new BorderLayout());
 		Jpn4.setBackground(Color.white);
 		mJfr.getJfr().add(Jpn4);
-		System.out.println("2");
+
 		Jpn1.setBounds(30, 190, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
 		Jpn2.setBounds(Jfr_Xsize*3/4-80, 50, Jfr_Xsize/4, Jfr_Ysize/3);
 		Jpn3.setBounds(300, Jfr_Ysize/2+50, Jfr_Xsize-100, Jfr_Ysize/2-50);
@@ -167,7 +166,6 @@ public class FightMonView{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("3");
 		mJfr.getJfr().remove(Jpn4);
 		mJfr.getJfr().add(Jpn1);
 		mJfr.getJfr().add(Jpn2);
