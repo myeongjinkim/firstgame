@@ -3,10 +3,9 @@ package control;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import view.GameView;
-import view.SelectCharView.EChar;
 import entity.AllChar;
 import entity.MyJFrame;
+import view.SelectCharView.EChar;
 
 public class FightMonControl implements KeyListener{
 	public boolean keyOk = true;
@@ -74,7 +73,6 @@ public class FightMonControl implements KeyListener{
 				else if(mySelect==3)
 				{
 					ekt= EKeyType.EExit;
-					mon.setNHp(mon.getHp());
 					end=true;
 					keyOk=false;
 				}

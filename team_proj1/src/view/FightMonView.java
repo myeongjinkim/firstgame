@@ -180,8 +180,15 @@ public class FightMonView{
 		
 		mJfr.getJfr().repaint();
 		
-		while(fightMonControl.end()!=true)
+		while(true)
 		{
+			if(fightMonControl.end()==true)
+			{
+				
+				myCh.setNHp(myCh.getNHp()-20);
+				mon.setNHp(mon.getHp());
+				break;
+			}
 			if(myCh.getNHp()<=0)
 			{
 				break;
