@@ -26,7 +26,8 @@ public class FightMonView{
 	final ImageIcon icon3 = new ImageIcon(".\\img\\fightMenu.png");
 	ImageIcon icon4 = new ImageIcon(".\\img\\meetmon.jpg");
 	final ImageIcon icon5 = new ImageIcon(".\\img\\attack.png");
-	ImageIcon icon6 = new ImageIcon(".\\img\\victory.png");
+	final ImageIcon icon6 = new ImageIcon(".\\img\\skill.png");
+	ImageIcon icon7 = new ImageIcon(".\\img\\victory.png");
 	
 	public FightMonView(AllChar myCh, AllChar mon, MyJFrame mJfr, 
 			int Jfr_Xsize, int  Jfr_Ysize,int Jfr_Xlo, int Jfr_Ylo,int myX,int myY)
@@ -218,7 +219,7 @@ public class FightMonView{
 
 					public void paintComponent(Graphics g) {
 						
-							g.drawImage(icon6.getImage(), 0, 0, Jfr_Xsize, Jfr_Ysize, null);
+							g.drawImage(icon7.getImage(), 0, 0, Jfr_Xsize, Jfr_Ysize, null);
 						
 		               } 
 		        };
@@ -401,6 +402,19 @@ public class FightMonView{
 			}
 			if(myCh.getNHp()>0&&mon.getNHp()>0&&myCh.getNMp()>=10&&myCh.getIsSkill()==true)
 			{
+				mJfr.getJfr().remove(Jpn5);
+				Jpn5=new JPanel(){
+					
+					/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+					public void paintComponent(Graphics g) {
+		                g.drawImage(icon6.getImage(), 0, 0, 150, 100, null);
+		               
+		               } 
+		        };
 				mJfr.getJfr().add(Jpn5);
 				Jpn5.setBounds(100, 50, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
 				motion++;
@@ -445,6 +459,7 @@ public class FightMonView{
 				{
 					motion_ok=true;
 					mJfr.getJfr().remove(Jpn5);
+					mJfr.getJfr().repaint();
 				}
 				if(motion_ok)
 				{
@@ -486,6 +501,18 @@ public class FightMonView{
 			}
 			if(mon.getNHp()>0&&myCh.getNHp()>0&&mon.getIsAttack()==true)
 			{
+				mJfr.getJfr().remove(Jpn5);
+				Jpn5=new JPanel(){
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 9166120552525119084L;
+
+				public void paintComponent(Graphics g) {
+			        	g.drawImage(icon5.getImage(), 0, 0, 150, 100, null);
+			               
+			    	} 
+			    };
 				mJfr.getJfr().add(Jpn5);
 				Jpn5.setBounds(600, 270, Jfr_Xsize/4+50, Jfr_Ysize/3+50);
 				motion++;
@@ -513,6 +540,7 @@ public class FightMonView{
 				{
 					motion_ok=true;
 					mJfr.getJfr().remove(Jpn5);
+					mJfr.getJfr().repaint();
 				}
 				if(motion_ok)
 				{
@@ -554,6 +582,7 @@ public class FightMonView{
 		mJfr.getJfr().remove(Jpn2);
 		mJfr.getJfr().remove(Jpn3);
 		mJfr.getJfr().remove(Jpn4);
+		mJfr.getJfr().remove(Jpn5);
 		mJfr.getJfr().remove(Jlb1);
 		mJfr.getJfr().remove(Jlb2);
 		mJfr.getJfr().remove(Jlb3);
